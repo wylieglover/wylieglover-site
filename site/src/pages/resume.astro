@@ -1,0 +1,171 @@
+---
+// src/pages/resume.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+---
+
+<BaseLayout 
+  title="Resume - Portfolio"
+  description="View and download my professional resume"
+>
+  <!-- Hero Section -->
+  <section class="section-container bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+        My <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Resume</span>
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+        Download my resume or view it below to learn more about my background, skills, and projects.
+      </p>
+      
+      <!-- Download Button -->
+      <a 
+        href="/resume.pdf" 
+        download
+        class="btn-primary inline-flex items-center gap-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- Resume Preview Section -->
+  <section class="section-container bg-white dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <!-- PDF Viewer -->
+      <div class="card p-4 mb-8">
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden" style="height: 800px;">
+          <iframe
+            src="/resume.pdf"
+            class="w-full h-full"
+            title="Resume PDF"
+          ></iframe>
+        </div>
+        <p class="p-4 text-center">
+          Your browser doesn't support PDF viewing.
+          <a href="/resume.pdf" download class="text-blue-600 hover:underline">Download the PDF</a> instead.
+        </p>
+      </div>
+
+      <!-- Alternative Text-Based Resume -->
+      <div class="space-y-12">
+        <SectionTitle 
+          title="Resume Highlights" 
+          subtitle="Snapshot of my skills, experience, and projects"
+        />
+
+        <!-- Summary -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Professional Summary</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Full-stack developer with experience building interactive web apps, automation tools, and AI-driven projects. 
+            Strong foundation in Python, JavaScript, and modern frameworks like React and Django. 
+            Passionate about reverse engineering, automation, and continuous learning.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Work Experience</h3>
+          <div class="space-y-6">
+            <div class="border-l-4 border-blue-600 dark:border-blue-400 pl-6">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-xl font-semibold">Freelance Web Developer</h4>
+                  <p class="text-blue-600 dark:text-blue-400">Self-Employed · Remote</p>
+                </div>
+                <span class="text-gray-500 dark:text-gray-400">Jan 2023 – Present</span>
+              </div>
+              <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+                <li>Designed and developed custom websites using React.js and Django.</li>
+                <li>Implemented responsive designs, boosting mobile usability.</li>
+                <li>Worked directly with clients to define requirements and deliver tailored solutions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Education</h3>
+          <div class="border-l-4 border-purple-600 dark:border-purple-400 pl-6">
+            <h4 class="text-xl font-semibold">B.S. in Computer Science</h4>
+            <p class="text-purple-600 dark:text-purple-400 mb-2">Georgia Southern University</p>
+            <p class="text-gray-500 dark:text-gray-400">2019 – 2023</p>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Certifications</h3>
+          <div class="border-l-4 border-green-600 dark:border-green-400 pl-6">
+            <h4 class="text-xl font-semibold">NVIDIA Certified Associate: Generative AI & LLMs</h4>
+            <p class="text-green-600 dark:text-green-400 mb-2">Issued July 2024</p>
+            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
+              <li>Training in rapid application development with LLMs</li>
+              <li>Hands-on with PyTorch, TensorFlow, and transformer-based NLP</li>
+              <li>Covered end-to-end data science workflows</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Selected Projects</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+            <li><strong>VizDataAcademy.com</strong> – React + Django platform teaching data literacy to students.</li>
+            <li><strong>PE Parser</strong> – Reverse-engineering tool built with Python and C++.</li>
+            <li><strong>Twitch Clipper</strong> – Automation tool that finds and edits highlight moments from Twitch VODs.</li>
+          </ul>
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Frontend</h4>
+              <p>React.js, Vue.js, Tailwind CSS, Bootstrap, Qt</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-3 text-purple-600 dark:text-purple-400">Backend</h4>
+              <p>Django, Flask, Node.js</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-3 text-green-600 dark:text-green-400">AI/ML</h4>
+              <p>PyTorch, TensorFlow, Scikit-learn, CUDA, RAPIDS</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-lg mb-3 text-orange-600 dark:text-orange-400">Databases & Tools</h4>
+              <p>PostgreSQL, MySQL, Pinecone, Git, Docker, AWS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="mt-12 text-center card p-8">
+        <h3 class="text-2xl font-bold mb-4">Interested in Working Together?</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Feel free to reach out if you'd like to discuss opportunities or learn more about my experience.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=rwylieg@gmail.com&su=Hello%20Wylie"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            Contact Me
+          </a>
+          <a href="/projects" class="btn-secondary">
+            View My Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

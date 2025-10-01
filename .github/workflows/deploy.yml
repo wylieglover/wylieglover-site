@@ -1,0 +1,50 @@
+name: Deploy Astro site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Needed so Actions can create a Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Avoid overlapping deploys
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+      # If you have LFS files (images), uncomment the "lfs: true" line
+        uses: actions/checkout@v4
+        # with:
+        #   lfs: true
+
+      # This action installs Node, installs dependencies, runs `astro build`,
+      # and uploads the build artifact for Pages.
+      - name: Install, build, and upload
+        uses: withastro/action@v3
+        with:
+          # Your Astro project root INSIDE the repo
+          path: site
+          # Optional, but good to pin:
+          node-version: 20
+          # Auto-detects your lockfile; you can pin if you prefer:
+          # package-manager: npm@latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

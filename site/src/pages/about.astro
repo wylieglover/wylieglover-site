@@ -1,0 +1,175 @@
+---
+// src/pages/about.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const skills = {
+  'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Astro', 'Vue.js'],
+  'Backend': ['Node.js', 'Python', 'Express', 'FastAPI', 'PostgreSQL', 'MongoDB'],
+  'Tools & Others': ['Git', 'Docker', 'AWS', 'CI/CD', 'REST APIs', 'GraphQL']
+};
+
+const experience = [
+  {
+    role: 'Independent Developer',
+    company: 'Self-Directed Projects',
+    period: '2021 - Present',
+    description: 'Built end-to-end applications including an AI-powered Twitch clipper, game AI experiments, and low-level tooling like a PE file parser. Treated projects with production standards (testing, deployment, and documentation).'
+  },
+  {
+    role: 'Open Source Contributor',
+    company: 'GitHub Community',
+    period: '2020 - Present',
+    description: 'Published and maintained open-source projects on GitHub. Collaborated with community feedback, integrated APIs, and built developer-friendly tooling.'
+  }
+];
+
+const education = [
+  {
+    degree: 'Bachelor of Science in Computer Science',
+    school: 'Georgia Southern University',
+    year: '2023',
+    description: 'Focused on software engineering, algorithms, and web development.'
+  }
+];
+---
+
+<BaseLayout 
+  title="About Me - Portfolio"
+  description="Learn more about my background, skills, and experience"
+>
+  <!-- Hero Section -->
+  <section class="section-container bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          About <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Me</span>
+        </h1>
+        <div class="space-y-4 text-gray-600 dark:text-gray-400 text-lg">
+          <p>
+            Hi! I'm a passionate full-stack developer with a love for creating beautiful, 
+            functional web applications. I believe in writing clean, maintainable code and 
+            building products that make a real difference.
+          </p>
+          <p>
+            My journey in tech started with a curiosity that sparked through a friend who loved reverse engineering. It has 
+            evolved into a career where I get to solve complex problems and bring ideas to life 
+            every single day.
+          </p>
+          <p>
+            I'm constantly learning new technologies and best practices, always striving to 
+            improve my craft and deliver the best possible solutions for every project I work on.
+          </p>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20"></div>
+        <img 
+          src="/images/profile.jpg" 
+          alt="Profile" 
+          class="relative rounded-2xl shadow-2xl w-full object-cover aspect-square"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section-container bg-white dark:bg-gray-900">
+    <SectionTitle 
+      title="Skills & Technologies" 
+      subtitle="The tools and technologies I use to bring ideas to life"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {Object.entries(skills).map(([category, items]) => (
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
+            {category}
+          </h3>
+          <div class="space-y-3">
+            {items.map(skill => (
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section-container bg-gray-50 dark:bg-gray-800">
+    <SectionTitle 
+      title="Work Experience" 
+      subtitle="My professional journey in the tech industry"
+    />
+
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-8">
+        {experience.map((job) => (
+          <div class="relative pl-8 pb-8 border-l-2 border-blue-600 dark:border-blue-400 last:border-l-0 last:pb-0">
+            <div class="absolute left-0 top-0 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -translate-x-[9px]"></div>
+            
+            <div class="card p-6">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                <h3 class="text-xl font-semibold">{job.role}</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{job.period}</span>
+              </div>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">{job.company}</p>
+              <p class="text-gray-600 dark:text-gray-400">{job.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section-container bg-white dark:bg-gray-900">
+    <SectionTitle 
+      title="Education" 
+      subtitle="My academic background"
+    />
+
+    <div class="max-w-3xl mx-auto">
+      {education.map(edu => (
+        <div class="card p-8">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
+            <h3 class="text-2xl font-semibold">{edu.degree}</h3>
+            <span class="text-lg text-gray-500 dark:text-gray-400">{edu.year}</span>
+          </div>
+          <p class="text-blue-600 dark:text-blue-400 font-medium mb-3 text-lg">{edu.school}</p>
+          <p class="text-gray-600 dark:text-gray-400">{edu.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section class="section-container bg-gray-50 dark:bg-gray-800">
+    <SectionTitle 
+      title="Beyond Code" 
+      subtitle="What I do when I'm not programming"
+    />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      {[
+        { icon: '📚', title: 'Reading', text: 'Tech blogs and philosophy' },
+        { icon: '🎮', title: 'Gaming', text: 'Strategy and puzzle games' },
+        { icon: '📺', title: 'Media', text: 'Watching documentaries, anime, or creative storytelling' },
+        { icon: '🌌', title: 'Curiosity', text: 'Exploring science, philosophy, and future tech' }
+      ].map(interest => (
+        <div class="card p-6 text-center hover:scale-105 transition-transform">
+          <div class="text-4xl mb-3">{interest.icon}</div>
+          <h3 class="font-semibold mb-2">{interest.title}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{interest.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
