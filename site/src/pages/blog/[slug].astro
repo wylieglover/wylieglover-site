@@ -1,0 +1,36 @@
+---
+// src/pages/blog/[slug].astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, getEntryBySlug } from "astro:content";
+
+// ✅ Tell Astro which slugs to pre-render
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((p) => ({
+    params: { slug: p.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = await getEntryBySlug("blog", slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+const { Content } = await post.render();
+---
+
+<BaseLayout title={`${post.data.title} - Blog`} description={post.data.description}>
+  <article class="section-container prose dark:prose-invert max-w-3xl mx-auto">
+    {post.data.image && (
+      <img src={post.data.image} alt={post.data.title} class="rounded-lg mb-8" />
+    )}
+    <h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+    <p class="text-gray-500 mb-6">
+      {post.data.pubDate.toLocaleDateString()} {post.data.author && `— ${post.data.author}`}
+    </p>
+
+    <Content />
+  </article>
+</BaseLayout>

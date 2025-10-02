@@ -1,0 +1,19 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { title, description, pubDate, author, image } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="prose dark:prose-invert max-w-3xl mx-auto py-12">
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold">{title}</h1>
+      <p class="text-gray-500 text-sm">
+        {pubDate.toLocaleDateString()} • {author}
+      </p>
+      {image && <img src={image} alt={title} class="rounded-lg mt-6" />}
+    </header>
+
+    <slot /> {/* blog post content goes here */}
+  </article>
+</BaseLayout>
