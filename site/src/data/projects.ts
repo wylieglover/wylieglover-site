@@ -1,17 +1,6 @@
 // Reusable list of projects (used by multiple pages)
 export const projects = [
   {
-    title: 'Twitch Clipper',
-    description:
-      'A tool that automatically detects hype moments in Twitch VODs, clips them, and formats them for TikTok/shorts. Built with Python, FFMPEG, and AI-powered moment detection.',
-    image: '/images/projects/twitch-clipper.jpg',
-    tags: ['Python', 'FFmpeg', 'AI', 'Automation'],
-    githubUrl: 'https://github.com/wylieglover/twitch_clipper',
-    liveUrl: '',
-    featured: true,
-    category: 'automation'
-  },
-  {
     title: 'PE Parser',
     description:
       'Parses Windows Portable Executable (PE) files (headers, sections, imports, relocations) and presents them in a readable UI.',
@@ -23,6 +12,28 @@ export const projects = [
     category: 'systems'
   },
   {
+    title: 'Twitch Clipper',
+    description:
+      'A tool that automatically detects hype moments in Twitch VODs, clips them, and formats them for TikTok/shorts. Built with Python, FFMPEG, and AI-powered moment detection.',
+    image: '/images/projects/twitch-clipper.jpg',
+    tags: ['Python', 'FFmpeg', 'AI', 'Automation'],
+    githubUrl: 'https://github.com/wylieglover/twitch_clipper',
+    liveUrl: '',
+    featured: true,
+    category: 'automation'
+  },
+  {
+    title: 'Rental Maintenance MVP',
+    description:
+      'A web application for managing rental property maintenance requests and tracking their status.',
+    image: '/images/projects/rental-maintenance-mvp.jpg',
+    tags: ['Next.js', 'TypeScript', 'HTML/CSS', 'Web Development'],
+    githubUrl: 'https://github.com/wylieglover/rental-maintenance',
+    liveUrl: '',
+    featured: true,
+    category: 'web-apps'
+  },
+  {
     title: 'SnakeAI With TailEscape',
     description:
       'An AI-powered Snake game where the agent learns optimal movement while avoiding collisions, using pathfinding and survival strategies.',
@@ -30,7 +41,6 @@ export const projects = [
     tags: ['Python', 'AI', 'Game Dev'],
     githubUrl: 'https://github.com/wylieglover/SnakeAI-With-TailEscape',
     liveUrl: '',
-    featured: true,
     category: 'games' // could also be 'ai-ml' if you prefer
   },
   {
