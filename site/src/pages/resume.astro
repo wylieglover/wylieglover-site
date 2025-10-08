@@ -38,16 +38,18 @@ import SectionTitle from '../components/SectionTitle.astro';
       <!-- PDF Viewer -->
       <div class="card p-4 mb-8">
         <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden" style="height: 800px;">
-          <iframe
-            src="/resume.pdf"
+          <object
+            data="/resume.pdf"
+            type="application/pdf"
             class="w-full h-full"
-            title="Resume PDF"
-          ></iframe>
+            aria-label="Resume PDF"
+          >
+            <p class="p-4 text-center">
+              Your browser doesn't support PDF viewing.
+              <a href="/resume.pdf" download class="text-blue-600 hover:underline">Download the PDF</a> instead.
+            </p>
+          </object>
         </div>
-        <p class="p-4 text-center">
-          Your browser doesn't support PDF viewing.
-          <a href="/resume.pdf" download class="text-blue-600 hover:underline">Download the PDF</a> instead.
-        </p>
       </div>
 
       <!-- Alternative Text-Based Resume -->
