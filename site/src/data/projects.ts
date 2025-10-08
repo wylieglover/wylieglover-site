@@ -12,15 +12,15 @@ export const projects = [
     category: 'systems'
   },
   {
-    title: 'Twitch Clipper',
+    title: 'Book Duel',
     description:
-      'A tool that automatically detects hype moments in Twitch VODs, clips them, and formats them for TikTok/shorts. Built with Python, FFMPEG, and AI-powered moment detection.',
-    image: '/images/projects/twitch-clipper.jpg',
-    tags: ['Python', 'FFmpeg', 'AI', 'Automation'],
-    githubUrl: 'https://github.com/wylieglover/twitch_clipper',
+      'A real-time, head-to-head reading challenge built with Flutter and Firebase.',
+    image: '/images/projects/bookduel.jpg',
+    tags: ['Flutter', 'Firebase', 'Web Development'],
+    githubUrl: 'https://github.com/wylieglover/BookDuel',
     liveUrl: '',
     featured: true,
-    category: 'automation'
+    category: 'systems'
   },
   {
     title: 'Rental Maintenance MVP',
@@ -32,6 +32,16 @@ export const projects = [
     liveUrl: '',
     featured: true,
     category: 'web-apps'
+  },
+    {
+    title: 'Twitch Clipper',
+    description:
+      'A tool that automatically detects hype moments in Twitch VODs, clips them, and formats them for TikTok/shorts. Built with Python, FFMPEG, and AI-powered moment detection.',
+    image: '/images/projects/twitch-clipper.jpg',
+    tags: ['Python', 'FFmpeg', 'AI', 'Automation'],
+    githubUrl: 'https://github.com/wylieglover/twitch_clipper',
+    liveUrl: '',
+    category: 'automation'
   },
   {
     title: 'SnakeAI With TailEscape',
